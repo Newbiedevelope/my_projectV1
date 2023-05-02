@@ -1,18 +1,39 @@
 package hello.my_projectV1.student.repository;
 
 import hello.my_projectV1.student.vo.StudentVo;
+import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
+@RequiredArgsConstructor
+public class StudentRepository {
 
-public interface StudentRepository {
 
-    StudentVo save(StudentVo studentVo);
+    private final SqlSession session;
 
-    void update(Long studentId, StudentUpdateDto dtoParam);
+    /**
+     * 단건 조회
+     */
+    public StudentVo findById(int studentId){
 
-    Optional<StudentVo> findById(Long studentId);
+        return session.selectOne(
+                "student.findById"
+                , StudentVo.builder().studentId(studentId).build()
+        );
+    }
 
-    List<StudentVo> findAll(StudentSearchCond cond);
+    /**
+     * 검색 리스트 조회
+     */
+    public List<StudentVo> findStudents(StudentVo studentVo) {
+        return session.selectList("student.findStudents", studentVo);
+
+    }
+
+
 }

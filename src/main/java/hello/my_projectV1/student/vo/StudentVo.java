@@ -1,20 +1,16 @@
 package hello.my_projectV1.student.vo;
 
+import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+@Builder
 @Data
 public class StudentVo {
 
     public static final StudentVo student = new StudentVo();
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studentId;
+    private int studentId;
 
     private String studentName;
 
@@ -23,7 +19,7 @@ public class StudentVo {
     public StudentVo() {
     }
 
-    public StudentVo(Long studentId, String studentName, int studentAge) {
+    public StudentVo(int studentId, String studentName, int studentAge) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentAge = studentAge;

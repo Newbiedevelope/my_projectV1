@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="student">
+    <select id="findById" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
+        SELECT student_name as studentName,
+                student_age as studentAge,
+                student_id as studentId
+        FROM student
+        WHERE student_id = #{studentId}
+    </select>
+    <select id="findStudents" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
+        SELECT student_name as studentName,
+                student_age as studentAge
+        FROM student
+    </select>
+</mapper>

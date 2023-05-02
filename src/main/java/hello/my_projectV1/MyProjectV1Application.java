@@ -1,6 +1,6 @@
 package hello.my_projectV1;
 
-import hello.my_projectV1.student.config.Config;
+import hello.my_projectV1.config.Config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;

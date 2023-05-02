@@ -1,19 +1,44 @@
 package hello.my_projectV1.student.service;
 
-import hello.my_projectV1.student.repository.StudentSearchCond;
-import hello.my_projectV1.student.repository.StudentUpdateDto;
+import hello.my_projectV1.student.repository.StudentRepository;
 import hello.my_projectV1.student.vo.StudentVo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface StudentService {
+@RequiredArgsConstructor
+@Service
+public class StudentService {
 
-    StudentVo save(StudentVo studentVo);
+    private final StudentRepository studentRepository;
 
-    void update(Long studentId, StudentUpdateDto updateDto);
+    /**
+     * 단건 조회
+     */
+    public StudentVo findById(int studentId){
+        return studentRepository.findById(studentId);
+    }
 
-    Optional<StudentVo> findById(Long studentId);
+    /**
+     * 검색 리스트 조회
+     */
+    public List<StudentVo> findStudents(StudentVo studentVo){
+        return studentRepository.findStudents(studentVo);
+    }
 
-    List<StudentVo> findStudents(StudentSearchCond cond);
+    /**
+     * 저장한다.
+     */
+    public StudentVo save(StudentVo studentVo){
+        return null;
+    }
+
+    /**
+     * 수정.
+     */
+    public void update(int studentId, StudentVo studentVo){
+    }
+
 }

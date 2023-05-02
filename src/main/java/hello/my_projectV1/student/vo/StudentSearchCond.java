@@ -1,4 +1,4 @@
-package hello.my_projectV1.student.repository;
+package hello.my_projectV1.student.vo;
 
 import lombok.Data;
 
@@ -15,5 +15,12 @@ public class StudentSearchCond {
     public StudentSearchCond(String studentName, int studentAge) {
         this.studentName = studentName;
         this.studentAge = studentAge;
+    }
+
+    public StudentVo toStudentVo(){
+        return StudentVo.builder()
+                .studentAge(studentAge)
+                .studentName(studentName)
+                .build();
     }
 }
