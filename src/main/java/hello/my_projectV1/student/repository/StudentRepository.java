@@ -3,11 +3,9 @@ package hello.my_projectV1.student.repository;
 import hello.my_projectV1.student.vo.StudentVo;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -17,14 +15,17 @@ public class StudentRepository {
     private final SqlSession session;
 
     /**
+     * 객체(학생) 생성
+     */
+    public int createStudent(StudentVo studentVo) {
+        return session.insert("student.createStudent", studentVo);
+    }
+
+    /**
      * 단건 조회
      */
-    public StudentVo findById(int studentId){
-
-        return session.selectOne(
-                "student.findById"
-                , StudentVo.builder().studentId(studentId).build()
-        );
+    public StudentVo findById(long studentId){
+        return session.selectOne("student.findById", StudentVo.builder().studentId(studentId).build());
     }
 
     /**
@@ -32,7 +33,20 @@ public class StudentRepository {
      */
     public List<StudentVo> findStudents(StudentVo studentVo) {
         return session.selectList("student.findStudents", studentVo);
+    }
 
+    /**
+     * 수정
+     */
+    public int updateById(long studentId, StudentVo studentVo) {
+        return session.update("student.updateById", studentVo);
+    }
+
+    /**
+     * 삭제
+     */
+    public int deleteById(long studentId) {
+        return session.delete("student.deleteById", StudentVo.builder().studentId(studentId).build());
     }
 
 

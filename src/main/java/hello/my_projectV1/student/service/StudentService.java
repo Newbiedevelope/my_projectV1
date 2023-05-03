@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -15,9 +14,16 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     /**
+     * 생성
+     */
+    public int createStudent(StudentVo studentVo){
+        return studentRepository.createStudent(studentVo);
+    }
+
+    /**
      * 단건 조회
      */
-    public StudentVo findById(int studentId){
+    public StudentVo findById(long studentId){
         return studentRepository.findById(studentId);
     }
 
@@ -29,16 +35,17 @@ public class StudentService {
     }
 
     /**
-     * 저장한다.
+     * 수정
      */
-    public StudentVo save(StudentVo studentVo){
-        return null;
+    public int updateById(long studentId, StudentVo studentVo) {
+        return studentRepository.updateById(studentId, studentVo);
     }
 
     /**
-     * 수정.
+     * 삭제
      */
-    public void update(int studentId, StudentVo studentVo){
+    public int deleteById(long studentId) {
+        return studentRepository.deleteById(studentId);
     }
 
 }

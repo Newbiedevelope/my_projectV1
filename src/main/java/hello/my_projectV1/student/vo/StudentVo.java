@@ -10,7 +10,7 @@ public class StudentVo {
 
     public static final StudentVo student = new StudentVo();
 
-    private int studentId;
+    private long studentId;
 
     private String studentName;
 
@@ -19,7 +19,7 @@ public class StudentVo {
     public StudentVo() {
     }
 
-    public StudentVo(int studentId, String studentName, int studentAge) {
+    public StudentVo(long studentId, String studentName, int studentAge) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentAge = studentAge;
