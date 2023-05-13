@@ -4,6 +4,7 @@ import hello.my_projectV1.student.vo.StudentSearchCond;
 import hello.my_projectV1.student.service.StudentService;
 import hello.my_projectV1.student.vo.StudentVo;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +19,22 @@ public class StudentController {
     /**
      * 생성
      */
-    @PostMapping("/{studentName}&{studentAge}")
-    public int createStudent(@PathVariable StudentVo studentVo) {
-        return studentService.createStudent(studentVo);
+//    @PostMapping("/{studentName}&{studentAge}")
+    @PostMapping
+    public int createStudent(
+            @Param("studentName") String studentName
+            , @Param("studentAge") int studentAge
+    ) {
+
+        System.out.println(studentName);
+        System.out.println(studentAge);
+
+        return studentService.createStudent(
+                StudentVo.builder()
+                        .studentName(studentName)
+                        .studentAge(studentAge)
+                        .build()
+        );
     }
 
     /**
@@ -44,7 +58,7 @@ public class StudentController {
     /**
      * 수정
      */
-    @PostMapping
+    @PatchMapping
     public int updateStudent(long studentId, StudentVo studentVo) {
         return studentService.updateById(studentId, studentVo);
     }

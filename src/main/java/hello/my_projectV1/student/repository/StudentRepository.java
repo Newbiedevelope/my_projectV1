@@ -18,7 +18,13 @@ public class StudentRepository {
      * 객체(학생) 생성
      */
     public int createStudent(StudentVo studentVo) {
-        return session.insert("student.createStudent", studentVo);
+
+        System.out.println("1. " + studentVo.getStudent_id());
+
+        int insert = session.insert("student.createStudent", studentVo);
+
+        System.out.println("2. " + studentVo.getStudent_id());
+        return studentVo.getStudent_id();
     }
 
     /**

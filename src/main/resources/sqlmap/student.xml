@@ -2,13 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="student">
-    <insert id="createStudent" parameterType="hello.my_projectV1.student.vo.StudentVo">
-        INSERT INTO student(
-                        student_name,
-                        student_age,
-                        student_id
-                    )
-        VALUES(#{studentId}, #{studentAge}, #{studentId})
+    <insert id="createStudent" parameterType="hello.my_projectV1.student.vo.StudentVo" useGeneratedKeys="true" keyProperty="student_id">
+        INSERT INTO student (
+            student_name
+            , student_age
+        ) VALUES(
+            #{studentName}
+            , #{studentAge}
+        )
     </insert>
     <select id="findById" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
         SELECT
@@ -21,7 +22,8 @@
     <select id="findStudents" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
         SELECT
                 student_name as studentName,
-                student_age as studentAge
+                student_age as studentAge,
+                student_id as studentId
         FROM student
     </select>
     <update id="updateById" parameterType="hello.my_projectV1.student.vo.StudentVo">
