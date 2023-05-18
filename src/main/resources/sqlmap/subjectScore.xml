@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="subject_score">
+    <insert id="whenCreateStudentAddSub" parameterType="hello.my_projectV1.student.vo.StudentVo" useGeneratedKeys="true" keyProperty="sub_score_id">
+            INSERT INTO subject_score (
+                subject_name
+                , subject_score
+                , student_id
+            ) VALUES (
+                "국어"
+                , 0
+                , #{student_id}
+            ),
+            (   "수학"
+                , 0
+                , #{student_id}
+            ),
+            (   "사회"
+                , 0
+                , #{student_id}
+            ),
+            (   "과학"
+                , 0
+                , #{student_id}
+            )
+    </insert>
+</mapper>
