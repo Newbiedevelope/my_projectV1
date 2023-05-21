@@ -11,6 +11,9 @@
             , #{studentAge}
         )
     </insert>
+
+
+
     <select id="findById" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
         SELECT
                 student_name as studentName,
@@ -19,6 +22,9 @@
         FROM student
         WHERE student_id = #{studentId}
     </select>
+
+
+
     <select id="findStudents" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
         SELECT
                 student_name as studentName,
