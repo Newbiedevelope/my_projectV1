@@ -33,5 +33,9 @@ public class SubjectScoreRepository {
                         .build());
     }
 
+    public int updateSubjectScore(SubjectScoreVo subjectScoreVo) {
+        return session.update("subjectScore.updateSubjectScore", subjectScoreVo);
+    }
+
 
 }

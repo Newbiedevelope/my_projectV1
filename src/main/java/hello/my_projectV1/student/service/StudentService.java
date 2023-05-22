@@ -4,6 +4,7 @@ import hello.my_projectV1.student.repository.StudentRepository;
 import hello.my_projectV1.student.vo.StudentVo;
 import hello.my_projectV1.subjectscore.repository.SubjectScoreRepository;
 import hello.my_projectV1.subjectscore.service.SubjectScoreService;
+import hello.my_projectV1.subjectscore.vo.SubjectScoreVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -62,6 +63,13 @@ public class StudentService {
      */
     public int updateById(long studentId, StudentVo studentVo) {
         return studentRepository.updateById(studentId, studentVo);
+    }
+
+    /**
+     * 점수 수정
+     */
+    public int updateSubjectScore(SubjectScoreVo subjectScoreVo) {
+        return subjectScoreService.updateSubjectScore(subjectScoreVo);
     }
 
     /**

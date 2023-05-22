@@ -33,4 +33,8 @@ public class SubjectScoreService {
     public List<SubjectScoreVo> findScoreByStudentId(int studentId) {
         return repository.findScoreByStudentId(studentId);
     }
+
+    public int updateSubjectScore(SubjectScoreVo subjectScoreVo) {
+        return repository.updateSubjectScore(subjectScoreVo);
+    }
 }

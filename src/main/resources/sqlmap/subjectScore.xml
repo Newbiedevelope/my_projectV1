@@ -20,4 +20,9 @@
           FROM subject_score
          WHERE student_id = #{studentId}
     </select>
+    <update id="updateSubjectScore" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
+        UPDATE subject_score
+        SET subject_score = #{subjectScore}
+        WHERE student_id = #{studentId}
+    </update>
 </mapper>
