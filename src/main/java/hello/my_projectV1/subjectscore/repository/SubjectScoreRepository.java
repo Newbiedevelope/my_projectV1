@@ -27,14 +27,29 @@ public class SubjectScoreRepository {
     }
 
     public List<SubjectScoreVo> findScoreByStudentId(int studentId) {
-        return session.selectList("subjectScore.findScoreByStudentId"
+        return session.selectList(
+                "subjectScore.findScoreByStudentId"
                 , SubjectScoreVo.builder()
                         .studentId(studentId)
                         .build());
     }
 
-    public int updateSubjectScore(SubjectScoreVo subjectScoreVo) {
-        return session.update("subjectScore.updateSubjectScore", subjectScoreVo);
+    /**
+     *
+     * @param studentId
+     * @param subjectName
+     * @param subjectScore
+     * @return
+     */
+    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
+        return session.update(
+                "subjectScore.updateSubjectScore"
+                , SubjectScoreVo.builder()
+                    .studentId(studentId)
+                    .subjectName(subjectName)
+                    .subjectScore(subjectScore)
+                    .build()
+        );
     }
 
 

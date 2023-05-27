@@ -68,8 +68,8 @@ public class StudentService {
     /**
      * 점수 수정
      */
-    public int updateSubjectScore(SubjectScoreVo subjectScoreVo) {
-        return subjectScoreService.updateSubjectScore(subjectScoreVo);
+    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
+        return subjectScoreService.updateSubjectScore(studentId, subjectName, subjectScore);
     }
 
     /**

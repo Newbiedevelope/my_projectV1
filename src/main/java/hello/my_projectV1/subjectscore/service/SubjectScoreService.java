@@ -29,12 +29,17 @@ public class SubjectScoreService {
     /**
      * studentId 의 점수를 조회해서  List<SubjectScoreVO> 로 반환한다.
      */
-
     public List<SubjectScoreVo> findScoreByStudentId(int studentId) {
         return repository.findScoreByStudentId(studentId);
     }
 
-    public int updateSubjectScore(SubjectScoreVo subjectScoreVo) {
-        return repository.updateSubjectScore(subjectScoreVo);
+    /**
+     * @param studentId
+     * @param subjectName
+     * @param subjectScore
+     * @return
+     */
+    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
+        return repository.updateSubjectScore(studentId, subjectName, subjectScore);
     }
 }

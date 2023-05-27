@@ -2,9 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="subjectScore">
+    <!-- -->
     <insert id="createStudentAddSub" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo" useGeneratedKeys="true" keyProperty="sub_score_id">
             INSERT INTO subject_score (
-                subject_name
+                subject_code
                 , subject_score
                 , student_id
             ) VALUES (
@@ -13,6 +14,8 @@
                 , #{studentId}
             )
     </insert>
+
+    <!-- -->
     <select id="findScoreByStudentId" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo" resultType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
         SELECT
                 subject_name AS subjectName
@@ -20,9 +23,12 @@
           FROM subject_score
          WHERE student_id = #{studentId}
     </select>
+
+    <!-- -->
     <update id="updateSubjectScore" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
         UPDATE subject_score
         SET subject_score = #{subjectScore}
         WHERE student_id = #{studentId}
+        AND subject_name = #{subjectName}
     </update>
 </mapper>

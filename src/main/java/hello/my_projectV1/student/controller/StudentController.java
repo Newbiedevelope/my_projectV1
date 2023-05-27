@@ -63,6 +63,11 @@ public class StudentController {
         return studentService.updateById(studentId, studentVo);
     }
 
+    @PatchMapping("/subject")
+    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
+        return studentService.updateSubjectScore(studentId, subjectName, subjectScore);
+    }
+
     /**
      * 삭제
      */
