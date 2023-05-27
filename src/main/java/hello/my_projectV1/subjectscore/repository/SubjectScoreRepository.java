@@ -16,12 +16,12 @@ public class SubjectScoreRepository {
 
     private final SqlSession session;
 
-    public void whenCreateStudentAddSub(int studentId, String subjectName) {
+    public void whenCreateStudentAddSub(int studentId, int subjectCode) {
         session.insert(
                 "subjectScore.createStudentAddSub"
                 , SubjectScoreVo.builder()
                         .studentId(studentId)
-                        .subjectName(subjectName)
+                        .subjectCode(subjectCode)
                         .build()
         );
     }
@@ -37,16 +37,16 @@ public class SubjectScoreRepository {
     /**
      *
      * @param studentId
-     * @param subjectName
+     * @param subjectCode
      * @param subjectScore
      * @return
      */
-    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
+    public int updateSubjectScore(int studentId, int subjectCode, int subjectScore) {
         return session.update(
                 "subjectScore.updateSubjectScore"
                 , SubjectScoreVo.builder()
                     .studentId(studentId)
-                    .subjectName(subjectName)
+                    .subjectCode(subjectCode)
                     .subjectScore(subjectScore)
                     .build()
         );

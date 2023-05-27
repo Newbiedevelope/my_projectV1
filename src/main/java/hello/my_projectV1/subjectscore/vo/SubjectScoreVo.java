@@ -14,7 +14,7 @@ public class SubjectScoreVo {
     private int sub_score_id;
     private int studentId;
     private int subjectScore;
-    private String subjectName;
+    private int subjectCode;
     private long subjectScoreId;
 
 }

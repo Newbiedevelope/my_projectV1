@@ -64,8 +64,8 @@ public class StudentController {
     }
 
     @PatchMapping("/subject")
-    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
-        return studentService.updateSubjectScore(studentId, subjectName, subjectScore);
+    public int updateSubjectScore(int studentId, int subjectCode, int subjectScore) {
+        return studentService.updateSubjectScore(studentId, subjectCode, subjectScore);
     }
 
     /**

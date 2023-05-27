@@ -9,7 +9,7 @@
                 , subject_score
                 , student_id
             ) VALUES (
-                #{subjectName}
+                #{subjectCode}
                 , 0
                 , #{studentId}
             )
@@ -18,7 +18,7 @@
     <!-- -->
     <select id="findScoreByStudentId" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo" resultType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
         SELECT
-                subject_name AS subjectName
+                subject_code AS subjectCode
                 , subject_score AS subjectScore
           FROM subject_score
          WHERE student_id = #{studentId}
@@ -29,6 +29,6 @@
         UPDATE subject_score
         SET subject_score = #{subjectScore}
         WHERE student_id = #{studentId}
-        AND subject_name = #{subjectName}
+        AND subject_code = #{subjectCode}
     </update>
 </mapper>

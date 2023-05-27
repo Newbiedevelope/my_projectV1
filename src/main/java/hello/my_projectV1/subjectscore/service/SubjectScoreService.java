@@ -16,12 +16,12 @@ public class SubjectScoreService {
 
     public void whenCreateStudentAddSub (int studentId){
 
-        String[] scoreArr = new String[]{"국", "수", "사", "과"};
+        int[] subjectArr = new int[]{1, 2, 3, 4};
 
-        for (String subjectName : scoreArr) {
+        for (int subjectCode : subjectArr) {
             repository.whenCreateStudentAddSub(
                     studentId
-                    , subjectName
+                    , subjectCode
             );
         }
     }
@@ -35,11 +35,11 @@ public class SubjectScoreService {
 
     /**
      * @param studentId
-     * @param subjectName
+     * @param subjectCode
      * @param subjectScore
      * @return
      */
-    public int updateSubjectScore(int studentId, String subjectName, int subjectScore) {
-        return repository.updateSubjectScore(studentId, subjectName, subjectScore);
+    public int updateSubjectScore(int studentId, int subjectCode, int subjectScore) {
+        return repository.updateSubjectScore(studentId, subjectCode, subjectScore);
     }
 }
