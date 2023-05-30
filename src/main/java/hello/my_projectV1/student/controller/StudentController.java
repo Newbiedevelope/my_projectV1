@@ -19,16 +19,11 @@ public class StudentController {
     /**
      * 생성
      */
-//    @PostMapping("/{studentName}&{studentAge}")
     @PostMapping
     public int createStudent(
             @Param("studentName") String studentName
             , @Param("studentAge") int studentAge
     ) {
-
-        System.out.println(studentName);
-        System.out.println(studentAge);
-
         return studentService.createStudent(
                 StudentVo.builder()
                         .studentName(studentName)
@@ -63,6 +58,9 @@ public class StudentController {
         return studentService.updateById(studentId, studentVo);
     }
 
+    /**
+     * 과목 점수 수정
+     */
     @PatchMapping("/subject")
     public int updateSubjectScore(int studentId, int subjectCode, int subjectScore) {
         return studentService.updateSubjectScore(studentId, subjectCode, subjectScore);
@@ -71,8 +69,8 @@ public class StudentController {
     /**
      * 삭제
      */
-    @GetMapping("/delete")
-    public int deleteStudent(long studentId) {
+    @DeleteMapping("/{studentId}")
+    public int deleteStudent(@PathVariable long studentId) {
         return studentService.deleteById(studentId);
     }
 }

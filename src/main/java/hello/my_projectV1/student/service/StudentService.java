@@ -39,14 +39,12 @@ public class StudentService {
 
         StudentVo student = studentRepository.findById(studentId);
 
-
         /**
-         *
+         * 정수형 배열로 과목 점수 받기
          */
         student.setSubjectScoreList(
                 subjectScoreService.findScoreByStudentId((int) studentId)
         );
-
 
         return student;
     }

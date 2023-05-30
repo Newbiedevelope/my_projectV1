@@ -16,7 +16,7 @@ public class SubjectScoreService {
 
     public void whenCreateStudentAddSub (int studentId){
 
-        int[] subjectArr = new int[]{1, 2, 3, 4};
+        int[] subjectArr = new int[]{ 1, 2, 3, 4 };
 
         for (int subjectCode : subjectArr) {
             repository.whenCreateStudentAddSub(
@@ -34,6 +34,7 @@ public class SubjectScoreService {
     }
 
     /**
+     *
      * @param studentId
      * @param subjectCode
      * @param subjectScore

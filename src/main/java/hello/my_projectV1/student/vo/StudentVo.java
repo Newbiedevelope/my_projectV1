@@ -25,4 +25,7 @@ public class StudentVo {
 
     private List<SubjectScoreVo> SubjectScoreList = new ArrayList<>();
 
+
+
+
 }

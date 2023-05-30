@@ -12,34 +12,31 @@
         )
     </insert>
 
-
-
     <select id="findById" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
-        SELECT
-                student_name as studentName,
-                student_age as studentAge,
-                student_id as studentId
-        FROM student
-        WHERE student_id = #{studentId}
+        SELECT student_name as studentName,
+               student_age as studentAge,
+               student_id as studentId
+          FROM student
+         WHERE student_id = #{studentId}
     </select>
-
-
 
     <select id="findStudents" resultType="hello.my_projectV1.student.vo.StudentVo" parameterType="hello.my_projectV1.student.vo.StudentVo">
-        SELECT
-                student_name as studentName,
-                student_age as studentAge,
-                student_id as studentId
-        FROM student
+        SELECT student_name as studentName,
+               student_age as studentAge,
+               student_id as studentId
+          FROM student
     </select>
+
     <update id="updateById" parameterType="hello.my_projectV1.student.vo.StudentVo">
         UPDATE student
-        SET student_name = #{studentName},
-            student_age = #{studentAge}
-        WHERE student_id = #{studentId}
+           SET student_name = #{studentName},
+               student_age = #{studentAge}
+         WHERE student_id = #{studentId}
     </update>
+
     <delete id="deleteById" parameterType="hello.my_projectV1.student.vo.StudentVo">
-        DELETE FROM student
-        WHERE student_id = #{studentId}
+        DELETE
+          FROM student
+         WHERE student_id = #{studentId}
     </delete>
 </mapper>
