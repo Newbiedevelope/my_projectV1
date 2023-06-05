@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="subjectScore">
-    <!-- -->
+    <!-- 학생 생성시 과목 자동 추가 -->
     <insert id="createStudentAddSub" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo" useGeneratedKeys="true" keyProperty="sub_score_id">
             INSERT INTO subject_score (
                 subject_code
@@ -15,15 +15,17 @@
             )
     </insert>
 
-    <!-- -->
+    <!-- 학생 ID로 조회할 때, 과목명과 점수를 함께 출력 -->
     <select id="findScoreByStudentId" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo" resultType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
-        SELECT subject_code AS subjectCode
-               , subject_score AS subjectScore
-          FROM subject_score
-         WHERE student_id = #{studentId}
+           SELECT code.subject_name AS subjectName
+                  , score.subject_score AS subjectScore
+             FROM subject_score AS score
+        LEFT JOIN subject_code AS code
+               ON score.subject_code = code.subject_seq
+            WHERE student_id = #{studentId}
     </select>
 
-    <!-- -->
+    <!-- 과목 점수 변경 -->
     <update id="updateSubjectScore" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
         UPDATE subject_score
            SET subject_score = #{subjectScore}
