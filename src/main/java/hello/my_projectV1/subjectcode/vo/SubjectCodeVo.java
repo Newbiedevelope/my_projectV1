@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SubjectCodeVo {
 
+    private int subject_seq;
     private int subjectSeq;
     private String subjectName;
 

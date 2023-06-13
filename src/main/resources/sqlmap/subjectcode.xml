@@ -3,10 +3,10 @@
 
 <mapper namespace="subjectCode">
     <!-- 과목 추가 -->
-    <insert id="createSubject" parameterType="hello.my_projectV1.subjectcode.vo.SubjectCodeVo">
+    <insert id="createSubject" parameterType="hello.my_projectV1.subjectcode.vo.SubjectCodeVo" useGeneratedKeys="true" keyProperty="subject_seq">
         INSERT INTO subject_code (
             subject_name
-        ) VALUES (
+        ) VALUE (
             #{subjectName}
         )
     </insert>

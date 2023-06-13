@@ -1,6 +1,5 @@
 package hello.my_projectV1.subjectscore.repository;
 
-import hello.my_projectV1.student.vo.StudentVo;
 import hello.my_projectV1.subjectscore.vo.SubjectScoreVo;
 import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
@@ -11,8 +10,6 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class SubjectScoreRepository {
-
-    // 아 개어렵다 뭐 어떻게 받지
 
     private final SqlSession session;
 
@@ -34,13 +31,6 @@ public class SubjectScoreRepository {
                         .build());
     }
 
-    /**
-     *
-     * @param studentId
-     * @param subjectCode
-     * @param subjectScore
-     * @return
-     */
     public int updateSubjectScore(int studentId, int subjectCode, int subjectScore) {
         return session.update(
                 "subjectScore.updateSubjectScore"
@@ -51,6 +41,4 @@ public class SubjectScoreRepository {
                     .build()
         );
     }
-
-
 }

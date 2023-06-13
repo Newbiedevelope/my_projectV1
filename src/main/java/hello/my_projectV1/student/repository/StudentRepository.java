@@ -49,6 +49,4 @@ public class StudentRepository {
     public int deleteById(long studentId) {
         return session.delete("student.deleteById", StudentVo.builder().studentId(studentId).build());
     }
-
-
 }

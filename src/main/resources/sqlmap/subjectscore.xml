@@ -20,9 +20,9 @@
            SELECT code.subject_name AS subjectName
                   , score.subject_score AS subjectScore
              FROM subject_score AS score
-        LEFT JOIN subject_code AS code
+             JOIN subject_code AS code
                ON score.subject_code = code.subject_seq
-            WHERE student_id = #{studentId}
+              AND student_id = #{studentId}
     </select>
 
     <!-- 과목 점수 변경 -->
