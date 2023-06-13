@@ -23,6 +23,18 @@ public class SubjectCodeRepository {
     }
 
     /**
+     * 과목 추가할 때 받은 과목명이 null 또는 빈값이라면 에러
+     */
+    public void subjectNameThrow(String subjectName) {
+        if (subjectName == null || subjectName.isBlank()) {
+            System.out.println("유효하지 않은 값입니다.");
+            return;
+        }
+
+        subjectName = subjectName.trim();
+    }
+
+    /**
      * 과목명 변경
      */
     public int updateSubjectNameBySeq(int subjectSeq, String subjectName) {

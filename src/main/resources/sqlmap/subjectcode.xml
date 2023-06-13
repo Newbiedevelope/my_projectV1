@@ -11,8 +11,14 @@
         )
     </insert>
 
+    <!-- 과목 코드 정보 조회 (추가)-->
+    <select id="selectSubjectCode" parameterType="hello.my_projectV1.subjectcode.vo.SubjectCodeVo" resultType="hello.my_projectV1.subjectcode.vo.SubjectCodeVo">
+        SELECT *
+          FROM subject_code
+    </select>
+
     <!-- 과목 이름 변경 -->
-    <update id="updateSubjectNameBySeq" parameterType="hello.my_projectV1.subjectcode.vo.SubjectCodeVo">
+    <update id="updateSubjectNameBySeq" parameterType="hello.my_projectV1.subjectcode.vo.SubjectCodeVo" keyProperty="subject_seq">
         UPDATE subject_code
            SET subject_name= #{subjectName}
          WHERE subject_seq = #{subjectSeq}
