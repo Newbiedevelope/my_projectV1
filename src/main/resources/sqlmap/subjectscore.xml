@@ -32,4 +32,11 @@
          WHERE student_id = #{studentId}
            AND subject_code = #{subjectCode}
     </update>
+
+    <!-- 과목 코드 테이블에서 기본키 삭제시, 외래키로 참조하는 스코어 테이블의 데이터도 같이 삭제-->
+    <delete id="deleteSubjectScoreBySubjectCode" parameterType="hello.my_projectV1.subjectscore.vo.SubjectScoreVo">
+        DELETE
+          FROM subject_score
+         WHERE subject_code = #{subjectCode}
+    </delete>
 </mapper>
